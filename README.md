@@ -2,6 +2,8 @@
 
 个人博客与作品集，带可编辑资料、文章、作品和技能的管理后台。内容保存在 Cloudflare D1，访客刷新页面后可看到已发布的更新。
 
+[打开博客](https://mrrubbish-blog-1018.pages.dev/) · [登录后台](https://mrrubbish-blog-1018.pages.dev/admin)
+
 ## 功能
 
 - 前台：首页、文章搜索与标签筛选、Markdown 阅读、目录、阅读进度、分享链接、作品与关于页面。
