@@ -37,6 +37,14 @@ npm run admin:setup
 
 在 <http://127.0.0.1:8793> 设置账号和密码。这个页面仅监听本机，保存加盐的 PBKDF2 哈希到被 Git 忽略的 `.dev.vars`，不会保存明文密码。设置完成后可结束设置进程。
 
+Windows 如果不能访问本机设置页，可用独立窗口：
+
+```powershell
+powershell -NoProfile -STA -File scripts/admin-setup-windows.ps1
+```
+
+在弹出的窗口输入账号与两次相同密码，点击保存。它同样只保存哈希；修改正式后台凭据后，仍需执行下方的 Secret 配置与重新部署。
+
 ## 检查
 
 ```powershell
