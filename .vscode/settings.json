@@ -1,0 +1,9 @@
+{
+  "editor.wordWrap": "on",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 23,
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "workbench.colorTheme": "Dark Modern"
+}
