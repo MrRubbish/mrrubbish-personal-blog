@@ -1,0 +1,9 @@
+name = "mrrubbish-blog-1018"
+compatibility_date = "2026-10-18"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mrrubbish-blog-db"
+database_id = "c68d26d6-160a-49e5-baab-626f96e5004d"
+migrations_dir = "migrations"

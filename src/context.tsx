@@ -1,0 +1,6 @@
+import {createContext,useCallback,useContext,useEffect,useState,type ReactNode} from 'react';
+import {api} from './api';import type {Site,Skill,Entry} from './types';import {Failure,Loading} from './components';
+interface Data{site:Site;skills:Skill[];posts:Entry[];projects:Entry[];refresh:()=>Promise<void>}
+const Context=createContext<Data|null>(null);
+export const useData=()=>{const value=useContext(Context);if(!value)throw new Error('Missing site context');return value;};
+export function DataProvider({children}:{children:ReactNode}){const [data,setData]=useState<Omit<Data,'refresh'>|null>(null),[error,setError]=useState('');const refresh=useCallback(async()=>{try{const [site,skills,posts,projects]=await Promise.all([api.site(),api.skills(),api.list('posts'),api.list('projects')]);setData({site,skills,posts,projects});setError('');}catch(e){setError(e instanceof Error?e.message:'无法读取站点内容。');throw e;}},[]);useEffect(()=>{refresh().catch(()=>{});},[refresh]);useEffect(()=>{if(data){document.documentElement.style.setProperty('--accent',data.site.settings.accent);document.title=data.site.settings.title;}},[data?.site]);if(!data)return error?<Failure message={error} retry={()=>refresh().catch(()=>{})}/>:<Loading/>;return <Context.Provider value={{...data,refresh}}>{children}</Context.Provider>;}
